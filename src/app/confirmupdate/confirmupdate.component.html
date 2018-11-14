@@ -1,0 +1,20 @@
+<div [hidden]="waiting">
+  <h1 class="h3 mb-3 font-weight-normal">Confirm Contact Information</h1>
+  <p>
+    Your non-Langara email address, {{model.email}}, has been confirmed.
+  </p>
+</div>
+
+<div [hidden]="!problem">
+  <h1 class="h3 mb-3 font-weight-normal">Confirm Contact Information</h1>
+  <p>
+    There was a problem.
+  </p>
+</div>
+
+<div [hidden]="!waiting">
+  <h1 class="h3 mb-3 font-weight-normal">Confirm Contact Information</h1>
+  <p>
+    Waiting for confirmation.
+  </p>
+</div>

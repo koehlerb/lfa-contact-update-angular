@@ -1,0 +1,37 @@
+<div [hidden]="submitted">
+  <h1 class="h3 mb-3 font-weight-normal"> Verify Contact Information</h1>
+  <p>
+    Enter your Langara email address below to verify
+    the contact information that the Langara Faculty Association
+    has on file for you. Further instructions will be sent
+    to that email address.
+  </p>
+  <form (ngSubmit)="onSubmit()" #pickmemberForm="ngForm">
+    <div class="form-group">
+      <input type="text" class="form-control" id="email"
+             placeholder="Langara email address"
+             required autofocus pattern="[a-z0-9]+@langara.ca"
+             [(ngModel)]="email" name="email" #emailv="ngModel">
+      <div [hidden]="emailv.valid || emailv.pristine"
+           class="alert alert-danger">
+        Langara email address is required
+      </div>
+    </div>
+
+    <re-captcha
+        [(ngModel)]="captcha"
+        name="captcha"
+        required
+        siteKey="6LfZE3IUAAAAAGAgkHJJYsgtpL8xgzEZpz6CwwUj">
+    </re-captcha>
+
+    <button type="submit" class="btn btn-lg btn-primary btn-block"
+            [disabled]="!pickmemberForm.form.valid">Next</button>
+
+  </form>
+</div>
+<div [hidden]="!submitted">
+  <p>
+    Check your Langara email for further instructions.
+  </p>
+</div>
